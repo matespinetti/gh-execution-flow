@@ -70,6 +70,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml
+    with:
+      artifact-name: dist-files
     
   report:
     needs: [lint, deploy] ## Because deploy dedepends on build, and build depends on lint,  so it will wait for all!
