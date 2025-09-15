@@ -76,6 +76,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
+    needs: [lint, deploy] ## Because deploy dedepends on build, and build depends on lint,  so it will wait for all!
     if: failure()
     runs-on: ubuntu-latest
     steps:
